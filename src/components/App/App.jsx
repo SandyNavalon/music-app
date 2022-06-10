@@ -11,8 +11,19 @@ function App() {
       {name: 'name3', artist: 'artist3', album: 'album3', id:'3'},
       {name: 'name4', artist: 'artist4', album: 'album4', id:'4'},
     ]
-
   );
+
+  const [playlist, setPlaylist] = useState('My Playlist');
+
+  const [playlistTracks, setPlaylistTracks] = useState(
+    [
+      {name: 'playlist-name1', artist: 'playlist-artist1', album: 'playlist-album1', id:'10'},
+      {name: 'playlist-name2', artist: 'playlist-artist2', album: 'playlist-album2', id:'20'},
+      {name: 'playlist-name3', artist: 'playlist-artist3', album: 'playlist-album3', id:'30'},
+      {name: 'playlist-name4', artist: 'playlist-artist4', album: 'playlist-album4', id:'40'},
+    ]
+  );
+
 
   return (
     <div>
@@ -21,7 +32,7 @@ function App() {
         <SearchBar />
         <div className="App-playlist">
           <SearchResults searchResults = {searchResults}/>
-          <Playlist />
+          <Playlist playlistName = {playlist} playlistTracks = {playlistTracks}/>
           {/* {searchResults.map((track) => <h1 key={track.id}>{track.name}</h1> */}
           {/* )} */}
         </div>
