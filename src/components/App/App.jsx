@@ -6,10 +6,10 @@ function App() {
 
   const [searchResults, setSearchResults] = useState(
     [
-      {name: '1', artist: '1', album: '1', id:'1'},
-      {name: '2', artist: '2', album: '2', id:'2'},
-      {name: '3', artist: '3', album: '3', id:'3'},
-      {name: '4', artist: '4', album: '4', id:'4'},
+      {name: 'name1', artist: 'artist1', album: 'album1', id:'1'},
+      {name: 'name2', artist: 'artist2', album: 'album2', id:'2'},
+      {name: 'name3', artist: 'artist3', album: 'album3', id:'3'},
+      {name: 'name4', artist: 'artist4', album: 'album4', id:'4'},
     ]
 
   );
@@ -22,6 +22,8 @@ function App() {
         <div className="App-playlist">
           <SearchResults searchResults = {searchResults}/>
           <Playlist />
+          {/* {searchResults.map((track) => <h1 key={track.id}>{track.name}</h1> */}
+          {/* )} */}
         </div>
       </div>
     </div>
