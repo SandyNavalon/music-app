@@ -2,17 +2,26 @@ import React from "react";
 import './Track.scss';
 
 const Track = (props) => {
+    const { track, onRemove } = props;
+
+    const handleRemoveClick = () => {
+        onRemove(track.id)
+    }
+
+    function renderAction() {
+        if(props.isRemoval){
+            return <button className="Track-action" onClick={handleRemoveClick}>-</button>
+        } else{
+            return <button className="Track-action" onClick={addTrack}>+</button>
+        }
+    }
 
     function addTrack() {
         props.onAdd(props.track);
     }
 
-    function renderAction() {
-        if(props.isRemoval){
-            return <button className="Track-action">-</button>
-        } else{
-            return <button className="Track-action" >+</button>
-        }
+    function removeTrack() {
+        props.onRemove(props.track);
     }
 
     return(
