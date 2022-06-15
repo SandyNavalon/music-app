@@ -1,12 +1,21 @@
-import React from 'react';
+import React, {useState} from 'react';
 import "./SearchBar.scss";
 
-const SearchBar = () => {
+const SearchBar = (props) => {
+    let [term, setTerm] = useState('')
+
+    const search = () => {
+        props.onSearch(term)
+    }
+
+    const handleTermChange = (e) => {
+        setTerm(e.target.value);
+    }
 
     return(
         <div className="SearchBar">
-            <input placeholder="Enter A Song, Album, or Artist" />
-            <button className="SearchButton">SEARCH</button>
+            <input onChange={handleTermChange} placeholder="Enter A Song, Album, or Artist" />
+            <button className="SearchButton" onClick={search}>SEARCH</button>
         </div>
     )
 }
