@@ -1,24 +1,36 @@
 import React from "react";
 import './Track.scss';
 
-const Track = () => {
+const Track = (props) => {
+    const { track, onRemove } = props;
 
-    function renderAction(isRemoval) {
+    const handleRemoveClick = () => {
+        onRemove(track.id)
+    }
 
-        if(isRemoval){
-            return <button className="Track-action">-</button>
+    function renderAction() {
+        if(props.isRemoval){
+            return <button className="Track-action" onClick={handleRemoveClick}>-</button>
         } else{
-            return <button className="Track-action">+</button>
+            return <button className="Track-action" onClick={addTrack}>+</button>
         }
+    }
+
+    function addTrack() {
+        props.onAdd(props.track);
+    }
+
+    function removeTrack() {
+        props.onRemove(props.track);
     }
 
     return(
         <div className="Track">
             <div className="Track-information">
-                <h3>track name will go here</h3>
-                <p> track artist will go here | track album will go here </p>
+                <h3>{props.track.name}</h3>
+                <p> {props.track.artist} | {props.track.album} </p>
             </div>
-            {renderAction}
+            {renderAction()}
         </div>
     )
 }
