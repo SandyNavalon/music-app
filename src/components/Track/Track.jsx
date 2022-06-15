@@ -16,7 +16,7 @@ const Track = (props) => {
         }
     }
 
-    function addTrack() {
+    const addTrack = () => {
         props.onAdd(props.track);
     }
 
