@@ -20,10 +20,6 @@ const Track = (props) => {
         props.onAdd(props.track);
     }
 
-    function removeTrack() {
-        props.onRemove(props.track);
-    }
-
     return(
         <div className="Track">
             <div className="Track-information">
